@@ -1,0 +1,57 @@
+//基础类 方便其他组件调用
+*
+  padding: 0
+  margin: 0
+
+body, html
+  font-weight: 200
+  line-height: 1
+  
+ul
+  list-style: none
+  
+.clearfix
+  display:inline-block
+  &::before, &::after
+  // before用来防止 top-margin collapse 和保证当 IE6/7 应用 zoom:1 时的是视觉一致性
+    display:block 
+    // 需要将元素转为块级元素才可以实现效果,inline-block也可以
+    content:''
+    //  内容为“.”就是一个英文的句号而已。也可以不写。
+    line-height:0
+    // 行高为0,设置这些主要是为了避免一些占用位置或者间隔的问题
+    height:0 
+    // 高度为0,同上
+    clear:both
+    // 清除左右两边浮动
+    visibility :hidden  /*可见度设为隐藏。注意它和display:none;是有区别的。visibility:hidden;仍然占据空间，只是看不到而已*/
+
+// 这里没有去兼容ie6,7,因为移动端基本不包含这些浏
+// .clearfix
+//   *zoom: 1  
+// 为了兼容 IE6/7,在IE6, 7下zoom: 1会触发hasLayout，从而使元素闭合内部的浮动。
+
+
+//   另外需要注意的是避免Collapsing margins(外边距压扁)
+// 有两种情况会引起 Collapsing margin:
+
+// 1）父子元素(不一定是直接父子)之间会发生 margin-top 或 margin-bottom 的折叠 
+// (如果之间没有 border、padding、inlne-content、height、min-height、max-height 分割的话) 这篇讨论 http://stackoverflow.com/questions/9519841/why-does-this-css-margin-top-style-not-work 很好的演示了这点
+// 2) 邻近元素同时设置margin,前面的margin-bottom 和后面的margin-top融合取最大的
+// 所以这里能够实现避免Collapsing margins是因为:
+
+// * 父子的话,给父元素添加.clearfix
+// * 紧邻的话,给前一个元素添加.clearfix
+// 这样主要利用 :before psudo-element 给元素内部前面添加一个空的元素 display:block 保证它是一个BFC(BFC可以隔断外边距折叠)
+
+@media (-webkit-device-pixel-ratio: 1.5),(min-webkit-device-pixel-ratio: 1.5)
+  .border-1px
+    &::after,&::before
+      -webkit-transform: scaleY(0.7)
+      transform: scaleY(0.7)
+
+@media (-webkit-device-pixel-ratio: 2),(min-webkit-device-pixel-ratio: 2)
+  .border-1px
+    &::after,&::before
+      -webkit-transform: scaleY(0.5)
+      transform: scaleY(0.5)

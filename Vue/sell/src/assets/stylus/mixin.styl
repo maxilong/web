@@ -1,0 +1,40 @@
+border-1px($color)
+  position:relative
+  &:after
+    display:block
+    content:' '
+    position:absolute
+    bottom:0
+    left:0
+    width:100%
+    border-top:1px solid $color
+border-1px-top($color)
+  position:relative
+  &:before
+    display:block
+    content:' '
+    width:100%
+    bottom:0
+    left:0
+    border-top:1px solid $color
+border-1px-right($color)
+  position:relative
+  &:before
+    display:block
+    position:absolute
+    content:''
+    height:100%
+    right:0
+    top:0
+    border-right:1px solid $color
+set-img($size)
+  width: $size
+  height: $size
+  display:inline-block
+
+bg-image($url)
+  background-image:url("../assets/images/" + $url + "@2x.png")
+  background-repeat:no-repeat
+  @media (-webkit-device-pixel-ratio:3),(min-device-pixel-ratio:3)
+    background-image:url("../assets/images/" + $url + "@3x.png")
+    background-repeat:no-repeat
