@@ -1,0 +1,53 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+}
+.wrapper{
+    position: relative;
+}
+
+.wrapper .imgs{
+    margin: 0px auto;
+    width: 400px;
+    height: 120px;
+    cursor: pointer;
+}
+
+
+.wrapper .snake{
+    position:absolute;
+    left: 50%;
+    margin-left: -300px;
+    width: 598px;
+    height: 398px;
+    overflow: hidden;
+    border: 1px solid #000;
+
+}
+
+.wrapper .snake .shead{
+    position:absolute;
+    left: 320px;
+    top: 200px;
+    width: 40px;
+    height: 40px;
+    background-image: url(images/头.png);
+    background-size: 100% 100%;
+}
+
+/* .wrapper .snake .sbody{
+    position: absolute;
+    top: 200px;
+    width: 40px;
+    height: 40px;
+    background-image: url(images/尾.png);
+    background-size: 100% 100%;
+} */
+.snake .sfood{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-image: url(images/食物.png);
+    background-size: 100% 100%;
+}
