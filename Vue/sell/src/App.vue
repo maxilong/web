@@ -84,9 +84,7 @@ export default {
       }
       return foods;
     }
-  },
-  
-    
+  }, 
 }
 </script>
 
@@ -97,37 +95,35 @@ export default {
 #app{
   width:100%;
   height:100%;
-  position:relative;
   -webkit-tap-highlight-color:rgba(0,0,0,0);
   .tab{
       display: flex;
       height:36px;
-      position:relative;
       .tab-item{
         flex:1;
         font-size:14px;
         color:rgb(75,85,93);
         text-align:center;
-        line-height:40px; 
+        line-height:40px;
+          .router-link-active{
+            font-size: 14px;
+            line-height: 14px;
+            color: rgb(240,20,20);
+            font-weight: bolder;
+          } 
+      }
+      .tab-item .active{
+        color:rgb(250,40,40);
       }
   }
   .border-1px{
     border-1px(rgba(1,17,27,0.1))
   }
-  .tab-item .active{
-    color:rgb(250,40,40);
-  }
   .header-store{
-    z-index: 99; 
+    z-index: 200; 
     position:absolute;
     top:0;
     left:0; 
-  }
-  .router-link-active{
-    font-size: 14px;
-    line-height: 14px;
-    color: rgb(240,20,20);
-    font-weight: bolder;
   }
 }
 

@@ -1,5 +1,5 @@
 <template>
-    <div class="goods">
+    <div id="goods">
         <div class="menu-wrapper" ref="menuWrapper">
             <div v-for="(item,index) in goods" :key="index" class="menu-item" @click="selectIndex(index,$event)" :class="{current: currentIndex === index}">    
                 <div class="text-wrapper border-1px">
@@ -41,6 +41,7 @@
                 </li>
             </ul>
         </div>
+        <div class="cat"></div>
     </div>
 </template>
 
@@ -157,20 +158,22 @@ export default {
 
 <style lang="stylus" ref="stylesheet/stylus">
 @import '../assets/stylus/index.styl';
-.goods{
-    position: absolute;
+@import '../../static/style.css';
+#goods{
     display: flex;
+    width: 100%;
+    position: absolute;
     top: 174px;
-    bottom:48px;
-    right:0px;
-    left:0px;
-    height: 368px;
+    bottom: 48px;
+    left: 0;
+    right: 0;
     overflow: hidden;
     .menu-wrapper{
         flex: 0 0 80px;
         width:80px;
         background-color:#f3f5f7;
         overflow-y:auto;
+        // overflow-x:hidden;
         .current {
             position: relative;
             margin-top: -1px;
@@ -290,6 +293,13 @@ export default {
                 }
             }  
         }
+    }
+    .cat{
+        width: 100%;
+        height: 48px;
+        position: fixed;
+        bottom:0;
+        left: 0;
     }
 }
 

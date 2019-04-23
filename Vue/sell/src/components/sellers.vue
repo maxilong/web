@@ -74,6 +74,7 @@
                 </div>
             </div>
         </div>
+        
     </div>
 </template>
 
@@ -127,13 +128,12 @@ export default {
 @import '../../static/style.css';
 .sellers{
     position: absolute;
-    display: flex;
     top: 174px;
-    bottom:48px;
-    right:0px;
-    left:0px;
-    height: 368px;
-    overflow-y: auto;
+    bottom: 48px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    overflow: auto;
     .sellers-cont{
         width: 100%;
         height: 100%;

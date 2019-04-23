@@ -84,10 +84,10 @@ export default {
 .ratings{
     position: absolute;
     top: 174px;
-    bottom:48px;
-    right:0px;
-    left:0px;
-    height: 368px;
+    bottom: 48px;
+    left: 0;
+    right: 0;
+    width: 100%;
     overflow: auto;
     .ratings-content{
         width: 100%;
