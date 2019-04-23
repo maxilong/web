@@ -153,7 +153,7 @@ export default {
         }
     }
     .ratings{
-        position: relative;   
+        position: absolute;   
     }
 }
 </style>

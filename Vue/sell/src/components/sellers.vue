@@ -114,7 +114,7 @@ export default {
         chexd(){
             this.flag = !this.flag;
             if(this.flag){
-                this.loveText = '已收藏';
+                this.loveText = '';
             }else{
                 this.loveText = '收藏';
             }
@@ -178,7 +178,7 @@ export default {
                     font-size: 24px;
                     color: rgba(77,85,93,0.3);
                     line-height: 24px;
-                    text-align: center;    
+                    text-align: center;  
                 }
                 .love-text{
                     font-size: 12px;

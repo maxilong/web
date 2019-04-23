@@ -174,12 +174,6 @@ export default {
         }
         .ratings-text{
             width: 100%;
-            position:absolute;
-            // bottom: 0px;
-            top:156px;
-            left:0;
-            // right: 0;
-            // overflow:hidden;
         }
     }
 }
