@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sheep Running</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0
+    }
+
+    .stage {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        background: #4a96ee;
+        overflow: hidden;
+    }
+
+    .sheep {
+        position: absolute;
+        width: 164px;
+        height: 122px;
+        background-image: url('sheep.png');
+        background-position: 0 0;
+        cursor: pointer;
+        background-repeat: no-repeat;
+
+        bottom: 20px;
+        right: -164px;
+
+    }
+</style>
+
+<body>
+    <div class="stage">
+        <!-- <div class="sheep" id='yang'></div> -->
+    </div>
+
+    <script>
+        (function () {
+
+            var obj = {
+                frequency: 70, //协调频率
+                stage: document.getElementsByClassName('stage')[0],
+                num: 0,
+                cot: 0,
+                speed: 7,// 移动速度 
+                maxSheep:8//最大数量超过
+                
+            }
+            function Sheep(data) {
+                this.sheep = document.createElement('div');
+                data.stage.appendChild(this.sheep);
+                this.stage = data.stage;
+                this.sheep.className = 'sheep';
+                this.frequencyNum = Math.floor(Math.random() * data.frequency) + 30;
+                this.sheepWith = this.sheep.offsetWidth;
+                this.sheepLeft = this.sheep.offsetLeft;
+                this.cot = data.cot;
+                this.num = data.num;
+                this.speed = data.speed;
+                this.top = 0;
+            }
+            init();
+            function init(){
+                cteatSheep();
+            }
+            function cteatSheep(){
+                var timer = setInterval(function(){
+                    var sheepNum = obj.stage.children.length;
+                    if(sheepNum > obj.maxSheep-1 ){
+                        return false;
+                    }else{
+                        var sheep = new Sheep(obj);
+                        sheepRun(sheep);
+                    }
+                   
+                },1500)
+            }
+
+            function sheepRun(sheep){
+                var sheepAnimate = setInterval(function(){ 
+                    sheep.num = sheep.num +sheep.sheepWith ;
+                    if(sheep.num == (sheep.sheepWith*8)){
+                        sheep.num = 0;
+                    }
+                // console.log(num);
+                    sheep.sheep.style.backgroundPosition = -sheep.num+'px '+ sheep.top+'px';
+                },sheep.frequencyNum);
+                var sheepRun = setInterval(function(){
+
+                    sheep.cot = sheep.sheep.offsetLeft-sheep.speed;
+                    if(sheep.cot<=-sheep.sheepWith){
+                        clearInterval(sheepRun);
+                        clearInterval(sheepAnimate);
+                        sheep.stage.removeChild(sheep.sheep);
+                    }
+                    //console.log(sheep.cot);
+                    sheep.sheep.style.left =  sheep.cot+'px';
+                },sheep.frequencyNum)
+
+
+// 添加拖     
+                sheep.sheep.addEventListener('mousedown',function(e){
+                        var event = event||e;
+                        sheep.top = -128;
+                        sheep.speed = 0;
+                        sheep.x = event.pageX;
+                        sheep.y = event.pageY;
+
+
+                document.addEventListener('mousemove',sheepMove)
+                function sheepMove(e){
+                        var event = event||e;
+                        sheep.sheep.style.left =  sheep.sheep.offsetLeft +(event.pageX - sheep.x)+'px';
+                        sheep.sheep.style.top =   sheep.sheep.offsetTop+ (event.pageY - sheep.y)+'px';
+                        sheep.x = event.pageX;
+					    sheep.y = event.pageY;
+                    }
+                     sheep.sheep.addEventListener('mouseup',function(e){
+                        var event = event||e;
+                        sheep.top = 0;
+                        sheep.speed = obj.speed;
+                        document.removeEventListener('mousemove',sheepMove)
+
+                })
+
+
+                       
+                }); 
+              
+               
+            }
+
+
+
+
+
+
+        })()
+        //  var num = 0;
+        //  var cot = 0;
+        // var sheep = document.getElementById('yang');
+        // var sheepAnimate = setInterval(function(){ 
+        //     num = num +164 ;
+        //     if(num == 1312){
+        //         num = 0;
+        //     }
+        //    // console.log(num);
+        //     sheep.style.backgroundPosition = -num+'px '+ 0+'px';
+        // },30);
+        // var sheepRun = setInterval(function(){
+
+        //     cot = sheep.offsetLeft-5;
+        //     if(cot<=-164){
+        //         clearInterval(sheepRun);
+        //     }
+        //     console.log(cot);
+        //     sheep.style.left =  cot+'px';
+        // },30)
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
