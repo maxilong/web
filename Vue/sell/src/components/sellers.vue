@@ -129,7 +129,7 @@ export default {
 .sellers{
     position: absolute;
     top: 174px;
-    bottom: 48px;
+    bottom: 58px;
     left: 0;
     right: 0;
     width: 100%;

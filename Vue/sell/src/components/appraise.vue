@@ -66,19 +66,8 @@ export default {
         }
     },
     created () {
-        Vue.nextTick(() => {
-            this.ratings.forEach((item,index) => {
-                item.scoreArr = [];
-                this.star(item.score,item.scoreArr);
-            })
-            this.filterArr();
-            this.formatSeconds();
-            this.allLen = this.ratings.length;
-            this.wellLen = this.ratings.wellArr.length;
-            this.yawpLen = this.ratings.yawpArr.length;
-        })
-            // console.log(this.ratings);
-
+        this.changeDate();
+        // console.log(this.ratings);
     },
     methods: {
         formatSeconds(){
@@ -150,6 +139,24 @@ export default {
             }else{
                 this.textFlag = true;
             }
+        },
+        changeDate(){
+                console.log(this.ratings);
+                this.arr = this.ratings;
+                this.arr.forEach((item,index) => {
+                    item.scoreArr = [];
+                    this.star(item.score,item.scoreArr);
+                })
+                this.filterArr();
+                this.formatSeconds();
+                this.allLen = this.ratings.length;
+                this.wellLen = this.ratings.wellArr.length;
+                this.yawpLen = this.ratings.yawpArr.length;            
+        }
+    },
+    watch:{
+        ratings(){
+            this.changeDate();
         }
     }
 }

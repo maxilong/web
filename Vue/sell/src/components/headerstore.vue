@@ -180,7 +180,7 @@ export default {
     }
     .store-clear{
         position: absolute;
-        bottom: 32px;
+        bottom: 68px;
         left: 50%;
         margin-left: -16px;
         font-size: 32px;

@@ -95,7 +95,7 @@ export default {
 @import '../assets/stylus/index.styl'
     .shopcart{
         width: 100%;
-        height: 48px;
+        height: 58px;
         position: fixed;
         bottom:0;
         left: 0;
@@ -114,17 +114,17 @@ export default {
                     position: relative;
                     border: 6px solid #141d27;
                     border-radius: 44px;
-                    font-size:24px;
+                    font-size:34px;
                     margin-left: 18px;
                     margin-top: -10px;
                 }
                 .icon-shopping_cart{
                     display: inline-block;
-                    width: 44px;
-                    height: 44px;
+                    width: 54px;
+                    height: 54px;
                     background-color: #2b333b;
                     text-align: center;
-                    line-height: 44px;
+                    line-height: 54px;
                     color: rgba(255,255,255,0.4);
                 }
                 .blue{
@@ -151,12 +151,12 @@ export default {
             .delive-fee{
                 flex: 1;
                 padding: 12px 0px 12px 4px;
-                height: 24px;
+                height: 34px;
                 .price{
                     display: inline-block;
                     padding-right: 12px;
                     font-size: 16px;
-                    line-height: 24px;
+                    line-height: 34px;
                     color: rgba(255,255,255,0.2);
                     border-1px-right(rgba(255,255,255,0.4));
                 }
@@ -171,7 +171,7 @@ export default {
                     padding-left: 12px;
                     font-size: 12px;
                     font-weight: 700;
-                    line-height: 24px;
+                    line-height: 34px;
                     color: rgba(255,255,255,0.4);
                 }
             }
@@ -179,8 +179,8 @@ export default {
                 flex: 0 0 105px;
                 padding: 0px 8px;
                 text-align: center;
-                height: 48px;
-                line-height: 48px;
+                height: 58px;
+                line-height: 58px;
                 font-size: 12px;
                 font-weight: 700;
                 color:rgba(255,255,255,0.1);
@@ -197,7 +197,7 @@ export default {
             height: 100%;
             .list-bg{
                 position: absolute;
-                bottom:48px;
+                bottom:58px;
                 left:0;
                 height: 100vh;
                 width: 100vw;
@@ -206,13 +206,13 @@ export default {
             }
             .cart-list{
                 position:absolute;
-                bottom: 96px;
+                bottom: 116px;
                 left:0px;
                 width: 100%;
                 background-color: rgba(0,0,0,0.4);
                 z-index:-1;
                 overflow: auto;
-                max-height: 217px;
+                max-height: 48vh;
                 .cart-list-hander{
                     height:40px;
                     padding: 0px 18px;
@@ -233,11 +233,11 @@ export default {
                 }
             }
             .food-item{
-                height: 48px;
+                height: 58px;
                 padding: 0 18px;
                 position:relative;
                 background-color: #fff;
-                line-height: 48px;    
+                line-height: 58px;    
                 .food-title{
                     font-size: 14px;
                     color:#07111b;    
@@ -250,7 +250,7 @@ export default {
                 .cartcontrol{
                     position:absolute;
                     right: 18px;
-                    top: 6px;
+                    top: 10px;
                     display: inline-block;
                 }
             }

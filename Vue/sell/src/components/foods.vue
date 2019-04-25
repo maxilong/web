@@ -23,7 +23,7 @@
             <div class="info-tit">商品介绍</div>
             <div class="info-text">{{foods.info}}</div>
         </div>
-        <div class="ratings">
+        <div class="rating">
             <my-appraise :ratings="foods.ratings"></my-appraise>
         </div>
     </div>
@@ -47,13 +47,13 @@ export default {
     methods: {
        getParams(){
            this.foods = this.$route.params.foods;
-           console.log(this.$route);
+        //    console.log(this.$route);
        },
        ret(){
            this.$router.push({
                path:'/goods',
            })
-       }
+       },
    },
     components:{
         myCartcontrol,
@@ -89,10 +89,9 @@ export default {
     }
     .foods-icon{
         width: 100%;
-        height: 360px;  
         img{
             display:inline-block;
-            width: 360px;
+            width: 100%;
         }  
     }
     .foods-title{
@@ -152,8 +151,8 @@ export default {
             line-height: 24px;    
         }
     }
-    .ratings{
-        position: absolute;   
+    .rating{
+        // position: absolute;   
     }
 }
 </style>

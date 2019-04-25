@@ -26,6 +26,7 @@ export default new Router({
     },
     {
       path: '/ratings',
+      name:'ratings',
       component: Ratings
     },
     {

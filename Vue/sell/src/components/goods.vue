@@ -164,7 +164,7 @@ export default {
     width: 100%;
     position: absolute;
     top: 174px;
-    bottom: 48px;
+    bottom: 58px;
     left: 0;
     right: 0;
     overflow: hidden;
