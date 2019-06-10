@@ -15,10 +15,16 @@
       </div>
     </div>
     <div class="content">
-      <router-view :seller="seller" :goods="goods" :ratings="ratings"></router-view>
+      <transition :name="myFade">
+        <keep-alive>
+          <router-view :seller="seller" :goods="goods" :ratings="ratings"></router-view>                
+        </keep-alive>
+      </transition>
     </div>
     <div class="shopCart">
-        <my-shopcart  :selectFoods="selectFoods" :deliveryPrice="seller.deliveryPrice" :minPrice="seller.minPrice"></my-shopcart>
+      <keep-alive>
+        <my-shopcart  :selectFoods="selectFoods" :deliveryPrice="seller.deliveryPrice" :minPrice="seller.minPrice"></my-shopcart>        
+      </keep-alive>
     </div>
   </div>
 </template>
@@ -39,6 +45,7 @@ export default {
       goods:[],
       ratings:[],
       index:[0,0,0],
+      myFade:'',
     }
   },
   components: {
@@ -68,7 +75,6 @@ export default {
             this.ratings = res.data.data;
         }
     })
-
   },
   computed: {
     selectFoods(){
@@ -85,6 +91,16 @@ export default {
       return foods;
     }
   }, 
+  watch:{
+    $route(to,from){
+      // console.log(to.meta.index,from.meta.index);
+      if(to.meta.index > from.meta.index){
+        this.myFade = 'slide-left';
+      }else{
+        this.myFade = 'slide-right';
+      }
+    }
+  }
 }
 </script>
 
@@ -115,6 +131,32 @@ export default {
       .tab-item .active{
         color:rgb(250,40,40);
       }
+  }
+  .content{
+      .slide-right-enter-active,
+      .slide-right-leave-active,
+      .slide-left-enter-active,
+      .slide-left-leave-active {
+        will-change: transform;
+        transition: all 500ms;
+        position: absolute;
+      }
+      .slide-right-enter {
+        opacity: 0;
+        transform: translate3d(-100%,-0, 0);
+      }
+      .slide-right-leave-active {
+        opacity: 0;
+        transform: translate3d(100%, 0, 0);
+      }
+      .slide-left-enter {
+        opacity: 0;
+        transform: translate3d(100%, 0, 0);
+      }
+      .slide-left-leave-active {
+        opacity: 0;
+        transform: translate3d(-100%,-0, 0);
+      }  
   }
   .border-1px{
     border-1px(rgba(1,17,27,0.1))

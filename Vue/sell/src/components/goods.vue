@@ -92,13 +92,16 @@ export default {
     methods: {
         //向下滚动 向上滚动
         selectIndex($index,$event){
+            // console.log($event.target);
             if($event._constructed){
                 return;
             }
             if(this.scrollY < this.foodsHeight[$index]){
+                console.log('bottom');
                 this.direction = 'bottom';
             }else{
                 this.direction = 'top';
+                console.log('top');
             }
             // 滚动
             this.scrollTran(this.$refs.foodWrapper,this.scrollY,this.foodsHeight[$index]);
@@ -106,13 +109,18 @@ export default {
         //添加滚动函数
         setScroll(){
             this.$refs.foodWrapper.addEventListener('scroll', (pos) =>{
-                this.scrollY = Math.abs(Math.round(pos.target.scrollTop)); 
+                if(this.scrollY === 0 ){
+                    this.scrollY = 0;
+                }else{
+                    this.scrollY = parseInt(Math.abs(Math.round(pos.target.scrollTop))); 
+                }
                 // console.log(this.$refs.foodWrapper.scrollTop);
+                // console.log(this.scrollY);
             },false)
-            // console.log(this.goods);
         },
         // 获取每一个模块的高度
         setHeight(){
+            // console.log('height');
             let foodList = document.getElementsByClassName('foods-list');
             let height = 0;
             this.foodsHeight.push(height);
@@ -125,6 +133,7 @@ export default {
         },
         //滚动
         scrollTran(div,form,to){
+            // console.log('a');
            clearInterval(div.timer);
             var iSpeed,
                 iCur;
