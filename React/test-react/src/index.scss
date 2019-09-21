@@ -1,0 +1,155 @@
+body,
+ul,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+dl,
+div,
+dd,
+hr,
+fieldset {
+  margin: 0;
+}
+
+ul,
+input,
+textarea,
+button,
+option,
+div,
+ol,
+fieldset,
+legend {
+  padding: 0;
+}
+
+html {
+  font-size: 0px;
+  line-height: 1.5em;
+}
+
+body {
+  font-size: 30px;
+  line-height: 1.75em;
+}
+
+body,
+body button,
+input,
+textarea {
+  font-family: "Microsoft YaHei", "lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB", "WenQuanYi Micro Hei", sans-serif !important;
+}
+img {
+  vertical-align: middle;
+  max-width:100%;
+}
+ul {
+  list-style: none;
+}
+
+img,
+button {
+  border-style: none;
+}
+
+a,
+input,
+button {
+  text-decoration: none;
+  outline: none;
+}
+*{
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+/* ios input样式清除 */
+input,
+textarea {
+  border: 0;
+  outline: none;
+  -webkit-appearance: none;
+  background:transparent;
+}
+
+/* number样式清除 */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* 上下拉动滚动条时卡顿、慢 */
+body {
+  -webkit-overflow-scrolling: touch;
+}
+html, body{
+  height: 100%;
+}
+// 表单背景色延迟加载
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  //背景色透明  生效时长  过渡效果  启用时延迟的时间
+  -webkit-transition: background-color 500s ease-in-out 0s;
+  -o-transition: background-color 500s ease-in-out 0s;
+  -moz-transition: background-color 500s ease-in-out 0s;
+  transition: background-color 500s ease-in-out 0s;
+}
+
+/* ios和android下触摸元素时出现半透明灰色遮罩 */
+a {
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+
+/* WebKit browsers */
+::-webkit-input-placeholder {
+  color: #aeb3c4;
+}
+
+/* Mozilla Firefox 4 to 18 */
+:-moz-placeholder {
+  color: #aeb3c4;
+}
+
+/* Mozilla Firefox 19+ */
+::-moz-placeholder {
+  color: #aeb3c4;
+}
+
+/* Internet Explorer 10+ */
+:-ms-input-placeholder {
+  color: #aeb3c4;
+}
+
+.Fleft {
+  float: left;
+}
+
+.Fright {
+  float: right;
+}
+
+// 如果有头部定位的话，需要给盒子加的padding-top;
+.fix_pad_top {
+  padding-top: 100px;
+}
+
+/*清除浮动*/
+.clearfix:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+img {
+  pointer-events: none;
+}
