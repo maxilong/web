@@ -1,0 +1,8 @@
+{
+  "scripts":{
+    "dev": "nodemon --watch src -e ts --exec tsc src/index.ts"
+  },
+  "dependencies": {
+    "nodemon": "^1.19.2"
+  }
+}

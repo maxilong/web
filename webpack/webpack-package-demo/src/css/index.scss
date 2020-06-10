@@ -1,0 +1,12 @@
+@import '../assets/font/iconfont.css';
+body{
+  .active{
+    width:300px;
+    transform: translate(100px,100px)
+  }
+  #wrapper{
+    .title_text:nth-of-type(odd){
+      background: yellow;
+    }
+  }
+}

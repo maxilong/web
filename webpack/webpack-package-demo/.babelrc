@@ -1,0 +1,15 @@
+{
+  "presets": [
+      [
+          "@babel/preset-env", // 配置语法降级
+          {
+              "useBuiltIns": "usage",
+              "corejs": 2
+          }
+      ]
+  ],
+  "plugins": [
+    "@babel/plugin-syntax-dynamic-import",
+    ["@babel/plugin-proposal-class-properties", { "loose": true }], // es7语法
+  ]  
+}

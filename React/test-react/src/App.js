@@ -1,15 +1,16 @@
 import React,{Component} from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-  NavLink,
-  Switch,
-  Redirect
-} from 'react-router-dom';
+// import {
+//   BrowserRouter as Router,
+//   Route,
+//   NavLink,
+//   Switch,
+//   Redirect
+// } from 'react-router-dom';
 import './App.scss';
-import Inputs from './components/input/inputs';
-import TodoList from './components/todoList/todoList';
-import Routers from './components/routers/routers';
+// import Inputs from './components/input/inputs';
+// import TodoList from './components/todoList/todoList';
+// import Routers from './components/routers/routers';
+import Comments from './view/comment/comment';
 
 class App extends Component{
   constructor(props){
@@ -65,31 +66,32 @@ class App extends Component{
       },1000);
     }
   }
-  static getDerivedStateFromProps(props,state){ 
-    console.log('渲染前/更新前', props, state);
-    return null;
-  }
-  componentDidMount(){ 
-    console.log('首次渲染后');
-  }
-  shouldComponentUpdate(nextProps,nextState){
-    console.log('更新渲染后', nextProps, nextState);
-    return true;
-  }
-  getSnapshotBeforeUpdate(prevProps, prevState){
-    console.log('更新之前', prevProps, prevState);
-    return 'lala';
-  }
-  componentDidUpdate(prevProps, prevState){
-    console.log('更新之后', prevProps, prevState);
-  }
-  componentWillUnmount(){
-    console.log('dele');
-  }
+  // static getDerivedStateFromProps(props,state){ 
+  //   console.log('渲染前/更新前', props, state);
+  //   return null;
+  // }
+  // componentDidMount(){ 
+  //   console.log('首次渲染后');
+  // }
+  // shouldComponentUpdate(nextProps,nextState){
+  //   console.log('更新渲染后', nextProps, nextState);
+  //   return true;
+  // }
+  // getSnapshotBeforeUpdate(prevProps, prevState){
+  //   console.log('更新之前', prevProps, prevState);
+  //   return 'lala';
+  // }
+  // componentDidUpdate(prevProps, prevState){
+  //   console.log('更新之后', prevProps, prevState);
+  // }
+  // componentWillUnmount(){
+  //   console.log('dele');
+  // }
   render(){
     return (
       <div className="heihei">
-        <span className="yikuai" onClick={this.changeName}>{this.state.time === 60 ? '获取' : this.state.time}</span>
+
+        {/* <span className="yikuai" onClick={this.changeName}>{this.state.time === 60 ? '获取' : this.state.time}</span> */}
         {/* dangerouslySetInnerHTML={{__html: this.state.content}} */}
         {/* <ul>
           {
@@ -100,8 +102,9 @@ class App extends Component{
         </ul>
           <div onClick={this.changeName(this.times)}></div>  这样写的话 会直接执行一次 然后点击会再次执行
           <div onClick={() => { this.changeName(this.times)} }></div>  用匿名的箭头函数包一层就刚好绑定事件而且可以传参         */}
+          <Comments></Comments>
         <div>
-          <Router>
+          {/* <Router>
             <div>
               <NavLink to="/" exact>首页</NavLink>
               <NavLink to="/todoList">todoList</NavLink>
@@ -115,7 +118,7 @@ class App extends Component{
                 <Redirect to="/"></Redirect>
               </Switch>
             </div>
-          </Router>
+          </Router> */}
         </div>
       </div>
     );
