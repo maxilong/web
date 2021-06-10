@@ -1,0 +1,73 @@
+.login {
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  font-size: 16px;
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-color: #242645;
+  color: #fff;
+  font-family: "MFShangHei_Noncommercial-Bold";
+  background-image: url("../../assets/images/c.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  position: relative;
+  .loginBox {
+    width: 400px;
+    height: 360px;
+    position: absolute;
+    top: 0;
+    left: -40%;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    padding: 50px 40px 40px 40px;
+    opacity: 1;
+    border-radius: 8px;
+    background-image: url("../../assets/images/login_bg_border.png");
+    background-size: 100% 100%;
+    .login-form {
+      position: relative;
+      margin: 0 auto;
+      overflow: hidden;
+      .ant-input{
+        background-color: transparent !important;
+        color: #fff !important;
+      }
+      .ant-input-affix-wrapper{
+        background-color: transparent !important;
+        color: #fff !important;
+      }
+      .ant-input-password-icon{
+        color: #c0c4cc !important;
+      }
+    }
+
+    .title-container {
+      position: relative;
+      text-align: center;
+      .title {
+        font-size: 26px;
+        /* color: $light_gray; */
+        margin: 0px auto 40px auto;
+        text-align: center;
+        font-weight: bold;
+        font-family: MFShangHei_Noncommercial-Bold;
+        color: rgba(254,254,254,1);
+        text-indent: 2%;
+      }
+
+      .set-language {
+        color: #fff;
+        position: absolute;
+        top: 3px;
+        font-size: 18px;
+        right: 0px;
+        cursor: pointer;
+      }
+    }
+  }
+}
