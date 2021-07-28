@@ -218,3 +218,16 @@ export function sliceString(str, num) {
   }
   return str.slice(0, num - len) + rep
 }
+
+export function getUndefined(string, text = '暂无数据') {
+  return string || text
+}
+
+// 计算卡剩余有效期天数
+export function residue(time) {
+  if (!time || time == 0) {
+    return '暂无数据'
+  }
+  const between = Number(time) - Date.now() / 1000
+  return parseInt(between / 86400)
+}

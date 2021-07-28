@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useSelector, connect, useDispatch } from 'react-redux'
 import { Input, Row, Col, Card, Table, Button } from 'antd'
 import PanelGroup from './components/PanelGroup'
+import TestCard from './components/TestCard'
 import { orderList, getApprovalIndex } from '@/api/workbench'
+import { workbenchSearch } from '@/api/admin'
+import { clearBlank } from '@/utils/index'
 
 import potentialImg from '@/assets/images/potential.png'
 import visitImg from '@/assets/images/visit.png'
@@ -31,6 +34,8 @@ function Workbench(props) {
   const [orderData, setOrderData] = useState([])
   const [approvaliData, setApprovaliData] = useState([{approval_type: 'xxx', mobile: '范德萨', status: '2' }])
   const statusObj = { 1: '审批中', 2: '已审核', 3: '已拒绝', 4: '已撤销' }
+  const [memberData, setMemberData] = useState([{member_id: '', id: ''}])
+  const testCardModel = useRef()
   // 监听场馆变化来控制页面渲染
   useEffect(() => {
     getOrderList()
@@ -84,8 +89,27 @@ function Workbench(props) {
       image: cabinetImg
     }
   ]
-  const bindSearch = () => {
-    console.log(1)
+  const bindSearch = (value) => {
+    const keyword = clearBlank(value)
+    if (!keyword) { return }
+    const data = { venue_id: venueId, keyword: keyword }
+    workbenchSearch(data).then(res => {
+      if (res.code === 1) {
+        const { data } = res
+        if (data.list.length) {
+          if (data.type == 'phone') {
+            if (data.list.length == '1') {
+              setMemberData(data.list[0])
+            } else {
+              setMemberData(data.list)
+            }
+          } else {
+            setMemberData(data.list[0])
+          }
+          testCardModel.current.showModel()
+        }
+      }
+    })
   }
   const shortcutBtn = (item) => {
     switch (item.key) {
@@ -179,6 +203,7 @@ function Workbench(props) {
           </div>
         </Col>
       </Row>
+      <TestCard ref={testCardModel} cardId={memberData.member_id ? memberData.id : ''} memberId={memberData.member_id || memberData.id} />
     </div>
   )
 }

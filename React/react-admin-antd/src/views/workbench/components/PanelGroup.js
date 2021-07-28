@@ -16,7 +16,7 @@ function PanelGroup(props) {
   const [memberAlertData, setMemberAlerData] = useState({list: [], number: 0})
   const venueId = useSelector(state => state.venueId)
 
-  // 监听场馆变换从而获取请求1
+  // 监听场馆变换从而获取请求
   useEffect(() => {
     if (venueId) {
       getentryData()
@@ -72,7 +72,6 @@ function PanelGroup(props) {
     const data = { venue_id: venueId, type: type }
     workbenchMemberAlert(data).then(res => {
       setMemberAlerData(res.data)
-      console.log(res.data)
     })
   }
   return (
