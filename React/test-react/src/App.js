@@ -15,7 +15,6 @@ import Comments from './view/comment/comment';
 class App extends Component{
   constructor(props){
     super(props);
-    // 测试git
     this.name= props.name;
     this.times = 60;
     this.timer = null;
