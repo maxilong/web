@@ -19,6 +19,9 @@ class App extends Component{
     // 测试git
     // 测试git
     // 测试git
+    // 测试git
+    // 测试git
+    // 测试git
     this.name= props.name;
     this.times = 60;
     this.timer = null;
