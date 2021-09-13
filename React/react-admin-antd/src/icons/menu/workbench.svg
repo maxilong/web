@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>工作台</title>
+    <desc>Created with Sketch.</desc>
+    <g id="工作台" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="矩形_638" fill="#FFFFFF" x="3" y="34" width="33.3333333" height="4" rx="2"></rect>
+        <rect id="圆角矩形_6_拷贝" fill="#FFFFFF" x="0" y="1" width="40" height="30" rx="4"></rect>
+        <polyline id="形状_26" stroke="#343756" stroke-width="3" stroke-linecap="round" points="6.66666667 19.3333333 13.3333333 11 23.3333333 17.6666667 31.6666667 7.66666667"></polyline>
+    </g>
+</svg>
